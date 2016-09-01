@@ -1,0 +1,28 @@
+{
+    "name": "ez-web",
+    "version": "1.0.0",
+    "description": "base webpack",
+    "main": "index.js",
+    "scripts": {
+        "dev": "webpack-dev-server --port 80 ---inline --content-base web --colors",
+        "build": "webpack --progress --colors",
+        "deploy": "webpack -p --progress --colors"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/cainmaila/ez-web.git"
+    },
+    "keywords": [
+    "web",
+    "webpack"
+  ],
+    "author": "cainmaila@gmail.com",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/cainmaila/ez-web/issues"
+    },
+    "homepage": "https://github.com/cainmaila/ez-web#readme",
+    "devDependencies": {
+        "webpack": "^1.13.2"
+    }
+}
