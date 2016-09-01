@@ -1,8 +1,9 @@
 var path = require('path');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var webpack = require('webpack');
 module.exports = {
     entry: {
-        app: ['./src/js/app.js'],
+        app2: ['./src/js/app.js'],
     },
     output: {
         path: path.resolve(__dirname, 'web'),
@@ -30,6 +31,6 @@ module.exports = {
     plugins: [
         new ExtractTextPlugin("./css/style.css", {
             allChunks: true
-        })
+        }),
     ]
 }

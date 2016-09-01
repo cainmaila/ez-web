@@ -10,5 +10,5 @@ class MyCalss {
     }
 }
 
-let myClass = new MyCalss('cain');
+let myClass = new MyCalss('ES6 Class');
 document.getElementById('output').innerHTML = myClass.namelog();

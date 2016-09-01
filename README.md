@@ -1,5 +1,6 @@
-# ez-web 基本Web頁面(js + less) + WebPack Dev Server 
+# ez-web 基本Web頁面(es6 + less) + WebPack Dev Server 
 
+v1.20 支援es6寫法
 v1.10 支援Less
 v1.00 打包js，及時更新效果 
 
