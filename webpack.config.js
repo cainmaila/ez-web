@@ -16,7 +16,15 @@ module.exports = {
 		}, {
                 test: /\.less$/,
                 loader: ExtractTextPlugin.extract("style-loader", "css-loader!less-loader")
-    		}
+    		},
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                loader: 'babel-loader',
+                query: {
+                    presets: ['es2015']
+                }
+            }
     	]
     },
     plugins: [
