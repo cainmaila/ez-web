@@ -1,0 +1,1 @@
+!function(t){function n(o){if(e[o])return e[o].exports;var r=e[o]={exports:{},id:o,loaded:!1};return t[o].call(r.exports,r,r.exports,n),r.loaded=!0,r.exports}var e={};return n.m=t,n.c=e,n.p="",n(0)}([function(t,n,e){t.exports=e(2)},function(t,n){},function(t,n,e){e(1),document.getElementById("output").innerHTML="從app.js輸出"}]);

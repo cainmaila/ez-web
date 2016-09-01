@@ -1,6 +1,7 @@
-# ez-web 基本Web頁面 + WebPack Dev Server
+# ez-web 基本Web頁面(js + less) + WebPack Dev Server 
 
-v1.00
+v1.10 支援Less
+v1.00 打包js，及時更新效果 
 
 ## 安裝
 
@@ -11,7 +12,7 @@ npm install
 
 ## 使用
 
-編譯的js請對應 **webpack.config.js**
+編譯的js與less請對應 **webpack.config.js**
 
 自動更新的頁面請增加
 ```
