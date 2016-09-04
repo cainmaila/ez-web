@@ -1,5 +1,6 @@
 # ez-web 基本Web頁面(js + less) + WebPack Dev Server 
 
+v1.11 支援圖片打包
 v1.10 支援Less
 v1.00 打包js，及時更新效果 
 

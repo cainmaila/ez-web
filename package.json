@@ -1,6 +1,6 @@
 {
     "name": "ez-web",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "description": "base webpack",
     "main": "index.js",
     "scripts": {
@@ -24,9 +24,11 @@
     "homepage": "https://github.com/cainmaila/ez-web#readme",
     "devDependencies": {
         "css-loader": "^0.24.0",
+        "file-loader": "^0.9.0",
         "less": "^2.7.1",
         "less-loader": "^2.2.3",
         "style-loader": "^0.13.1",
+        "url-loader": "^0.5.7",
         "webpack": "^1.13.2"
     },
     "dependencies": {
