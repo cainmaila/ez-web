@@ -4,10 +4,17 @@ var webpack = require('webpack');
 module.exports = {
     entry: {
         app: ['./src/js/app.js'],
+        vendor: ['vue'],
     },
     output: {
         path: path.resolve(__dirname, 'web'),
         filename: './js/[name].js'
+    },
+    resolve: {
+        alias: {
+            vue: 'vue/dist/vue.js',
+
+        }
     },
     module: {
         loaders: [{
@@ -32,5 +39,11 @@ module.exports = {
         new ExtractTextPlugin("./css/style.css", {
             allChunks: true
         }),
+        new webpack.optimize.CommonsChunkPlugin( /* chunkName = */ "vendor", /* filename= */ "./js/vendor.bundle.js"),
+        new webpack.optimize.UglifyJsPlugin({
+            mangle: {
+                except: ['vue']
+            }
+        })
     ]
 }

@@ -1,6 +1,6 @@
-require('../less/main.less');
+import '../less/main.less';
+import Vue from 'vue';
 const pcx = require('../images/pcx.jpg');
-import 'babel-polyfill'; //fix ie8 html5
 class MyCalss {
     constructor(name_) {
         this.myname = name_;
@@ -13,4 +13,10 @@ class MyCalss {
 
 let myClass = new MyCalss('ES6 Class');
 document.getElementById('output').innerHTML = myClass.namelog();
-document.getElementById('pcx').src = pcx;
+
+new Vue({
+    el: '#app',
+    data: {
+        pcx: pcx
+    }
+})
