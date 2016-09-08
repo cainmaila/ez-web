@@ -1,7 +1,9 @@
 var path = require('path');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var webpack = require('webpack');
-module.exports = {
+var production = process.env.NODE_ENV == 'production';
+var RootDir = process.cwd();
+var config = {
     entry: {
         app: ['./src/js/app.js'],
         vendor: ['vue'],
@@ -11,12 +13,13 @@ module.exports = {
         filename: './js/[name].js'
     },
     resolve: {
+        root: [RootDir + '/src', RootDir + '/node_modules'],
         alias: {
-            vue: 'vue/dist/vue.js',
-
+            vue: 'vue/dist/vue' + (production ? '.min' : '') + '.js',
         }
     },
     module: {
+        noParse: [/^vue$/],
         loaders: [{
             test: /\.css$/,
             loader: ExtractTextPlugin.extract("style-loader", "css-loader")
@@ -39,11 +42,17 @@ module.exports = {
         new ExtractTextPlugin("./css/style.css", {
             allChunks: true
         }),
+        new webpack.optimize.DedupePlugin(),
         new webpack.optimize.CommonsChunkPlugin( /* chunkName = */ "vendor", /* filename= */ "./js/vendor.bundle.js"),
-        new webpack.optimize.UglifyJsPlugin({
-            mangle: {
-                except: ['vue']
-            }
-        })
     ]
 }
+if (production) {
+    config.plugins.push(
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                warnings: false
+            }
+        })
+    );
+}
+module.exports = config;

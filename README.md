@@ -1,5 +1,6 @@
-# ez-web 基本Web頁面(es6 + less) + WebPack Dev Server 
+# ez-web 基本Web頁面(vue2 + es6 + less) + WebPack Dev Server 
 
+v1.30 vue 2 支援<br>
 v1.21 支援圖片打包<br>
 v1.20 支援es6寫法<br>
 v1.10 支援Less<br>

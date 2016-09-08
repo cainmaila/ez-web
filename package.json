@@ -1,12 +1,12 @@
 {
     "name": "ez-web",
-    "version": "1.2.1",
+    "version": "1.3.0",
     "description": "base webpack",
     "main": "index.js",
     "scripts": {
         "dev": "webpack-dev-server --port 80 ---inline --content-base web --colors",
-        "build": "webpack --progress --colors",
-        "deploy": "webpack -p --progress --colors"
+        "build": "webpack --profile --progress --colors",
+        "deploy": "set NODE_ENV=production&&webpack --progress --colors"
     },
     "repository": {
         "type": "git",
