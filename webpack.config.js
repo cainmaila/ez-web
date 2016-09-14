@@ -1,7 +1,9 @@
 var path = require('path');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 var webpack = require('webpack');
 var production = process.env.NODE_ENV == 'production';
+var dev = process.env.NODE_ENV == 'dev';
 var config = {
     entry: {
         app: ['./src/js/app.js'],
@@ -43,6 +45,11 @@ var config = {
         }),
         new webpack.optimize.DedupePlugin(),
         new webpack.optimize.CommonsChunkPlugin( /* chunkName = */ "vendor", /* filename= */ "./js/vendor.js"),
+        new HtmlWebpackPlugin({
+            title: 'Ez Web App',
+            template: './src/template/index.html',
+            dev: dev
+        }),
     ]
 }
 if (production) {

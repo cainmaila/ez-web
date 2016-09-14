@@ -1,1 +1,69 @@
-webpackJsonp([0],[function(n,e,t){n.exports=t(1)},function(n,e,t){"use strict";function a(n){return n&&n.__esModule?n:{"default":n}}function o(n,e){if(!(n instanceof e))throw new TypeError("Cannot call a class as a function")}var r=function(){function n(n,e){for(var t=0;t<e.length;t++){var a=e[t];a.enumerable=a.enumerable||!1,a.configurable=!0,"value"in a&&(a.writable=!0),Object.defineProperty(n,a.key,a)}}return function(e,t,a){return t&&n(e.prototype,t),a&&n(e,a),e}}();t(2);var u=t(3),c=a(u),i=t(4),f=function(){function n(e){o(this,n),this.myname=e}return r(n,[{key:"namelog",value:function(){return this.myname}}]),n}(),l=new f("ES6 Class");document.getElementById("output").innerHTML=l.namelog(),new c["default"]({el:"#app",data:{pcx:i}})},function(n,e){},,function(n,e,t){n.exports=t.p+"images/c088727b654a44e854cd90b1ec581273.jpg"}]);
+webpackJsonp([0],[
+/* 0 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__(1);
+
+
+/***/ },
+/* 1 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	__webpack_require__(2);
+
+	var _vue = __webpack_require__(3);
+
+	var _vue2 = _interopRequireDefault(_vue);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var pcx = __webpack_require__(4);
+
+	var MyCalss = function () {
+	    function MyCalss(name_) {
+	        _classCallCheck(this, MyCalss);
+
+	        this.myname = name_;
+	    }
+
+	    _createClass(MyCalss, [{
+	        key: 'namelog',
+	        value: function namelog() {
+	            return this.myname;
+	        }
+	    }]);
+
+	    return MyCalss;
+	}();
+
+	var myClass = new MyCalss('ES6 Class');
+	document.getElementById('output').innerHTML = myClass.namelog();
+
+	new _vue2.default({
+	    el: '#app',
+	    data: {
+	        pcx: pcx
+	    }
+	});
+
+/***/ },
+/* 2 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 3 */,
+/* 4 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "images/c088727b654a44e854cd90b1ec581273.jpg";
+
+/***/ }
+]);
