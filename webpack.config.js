@@ -10,7 +10,7 @@ var config = {
         vendor: ['vue'],
     },
     output: {
-        path: path.resolve(__dirname, 'web'),
+        path: path.resolve(__dirname, 'dist'),
         filename: './js/[name].js'
     },
     resolve: {
