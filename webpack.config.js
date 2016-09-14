@@ -2,7 +2,6 @@ var path = require('path');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var webpack = require('webpack');
 var production = process.env.NODE_ENV == 'production';
-var RootDir = process.cwd();
 var config = {
     entry: {
         app: ['./src/js/app.js'],
@@ -13,7 +12,7 @@ var config = {
         filename: './js/[name].js'
     },
     resolve: {
-        root: [RootDir + '/src', RootDir + '/node_modules'],
+        root: [__dirname + '/src', __dirname + '/node_modules'],
         alias: {
             vue: 'vue/dist/vue' + (production ? '.min' : '') + '.js',
         }
@@ -43,7 +42,7 @@ var config = {
             allChunks: true
         }),
         new webpack.optimize.DedupePlugin(),
-        new webpack.optimize.CommonsChunkPlugin( /* chunkName = */ "vendor", /* filename= */ "./js/vendor.bundle.js"),
+        new webpack.optimize.CommonsChunkPlugin( /* chunkName = */ "vendor", /* filename= */ "./js/vendor.js"),
     ]
 }
 if (production) {
