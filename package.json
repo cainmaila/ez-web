@@ -1,10 +1,10 @@
 {
   "name": "ez-web",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "base webpack",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --port 80 ---inline --content-base web --colors",
+    "dev": "set NODE_ENV=dev&&webpack-dev-server --port 80 ---inline --content-base web --colors",
     "build": "webpack --progress --colors",
     "deploy": "webpack -p --progress --colors"
   },
@@ -28,6 +28,7 @@
     "babel-preset-es2015": "^6.14.0",
     "css-loader": "^0.24.0",
     "file-loader": "^0.9.0",
+    "html-webpack-plugin": "^2.22.0",
     "less": "^2.7.1",
     "less-loader": "^2.2.3",
     "style-loader": "^0.13.1",

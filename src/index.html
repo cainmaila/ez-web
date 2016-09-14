@@ -2,8 +2,7 @@
 <html lang="zh-TW">
 <head>
 	<meta charset="UTF-8">
-	<title>EZ Wep App</title>
-	<link rel="stylesheet" type="text/css" href="/css/style.css">
+	<title><%= htmlWebpackPlugin.options.title %></title>
 </head>
 <body>
 	<h1>EZ Web APP wepback ES6 + Less v1.2</h1>
@@ -11,6 +10,5 @@
 	<div id="output"></div>
 	<img id="pcx" src="" alt="">
 </body>
-<script src="/js/app.js"></script>
-<script src="/webpack-dev-server.js"></script>
+<%= htmlWebpackPlugin.options.dev?'<script src="/webpack-dev-server.js"></script>':'' %>
 </html>

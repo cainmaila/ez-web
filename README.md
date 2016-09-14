@@ -1,5 +1,6 @@
 # ez-web 基本Web頁面(es6 + less) + WebPack Dev Server 
 
+v1.2.2 支援html版型<br>
 v1.21 支援圖片打包<br>
 v1.20 支援es6寫法<br>
 v1.10 支援Less<br>
@@ -15,11 +16,6 @@ npm install
 ## 使用
 
 編譯的js與less請對應 **webpack.config.js**
-
-自動更新的頁面請增加
-```
-<script src="http://localhost/webpack-dev-server.js"></script>
-```
 
 ## 開發與編譯
 

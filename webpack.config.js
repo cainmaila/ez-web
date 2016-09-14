@@ -1,12 +1,14 @@
 var path = require('path');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 var webpack = require('webpack');
+var dev = process.env.NODE_ENV == 'dev';
 module.exports = {
     entry: {
         app: ['./src/js/app.js'],
     },
     output: {
-        path: path.resolve(__dirname, 'web'),
+        path: path.resolve(__dirname, 'dist'),
         filename: './js/[name].js'
     },
     module: {
@@ -31,6 +33,11 @@ module.exports = {
     plugins: [
         new ExtractTextPlugin("./css/style.css", {
             allChunks: true
+        }),
+        new HtmlWebpackPlugin({
+            title: 'Ez Web App',
+            template: './src/index.html',
+            dev: dev
         }),
     ]
 }
