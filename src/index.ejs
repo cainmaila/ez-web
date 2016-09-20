@@ -9,9 +9,16 @@
 <body>
     <h1>EZ Web APP wepback ES6 + Less v1.2</h1>
     <div id="app">
+    	<ul>
+        	<li><router-link to="/">/</router-link></li>
+        	<li><router-link to="/p1">/p1</router-link></li>
+        	<li><router-link to="/p2">/p2</router-link></li>
+      	</ul>
+    	<router-view class="view"></router-view>
         <h2>基本Web頁面，js由webpack包覆，支援ES6語法與Less編寫</h2>
         <div id="output"></div>
         <img id="pcx" :src="pcx" alt="">
+        <p1></p1>
     </div>
 </body>
 <%= htmlWebpackPlugin.options.dev?'<script src="/webpack-dev-server.js"></script>':'' %>

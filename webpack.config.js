@@ -7,7 +7,7 @@ var dev = process.env.NODE_ENV == 'dev';
 var config = {
     entry: {
         app: ['./src/js/app.js'],
-        vendor: ['vue'],
+        vendor: ['vue', 'vue-router'],
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -16,7 +16,8 @@ var config = {
     resolve: {
         root: [__dirname + '/src', __dirname + '/node_modules'],
         alias: {
-            vue: 'vue/dist/vue' + (production ? '.min' : '') + '.js',
+            'vue': 'vue/dist/vue' + (production ? '.min' : '') + '.js',
+            'vue-router': 'vue-router/dist/vue-router' + (production ? '.min' : '') + '.js'
         }
     },
     module: {
@@ -37,6 +38,9 @@ var config = {
         }, {
             test: /\.(png|jpg)$/,
             loader: 'url?limit=25000&name=images/[hash].[ext]'
+        }, {
+            test: /\.html$/,
+            loader: 'html'
         }]
     },
     plugins: [
@@ -47,7 +51,7 @@ var config = {
         new webpack.optimize.CommonsChunkPlugin( /* chunkName = */ "vendor", /* filename= */ "./js/vendor.js"),
         new HtmlWebpackPlugin({
             title: 'Ez Web App',
-            template: './src/template/index.html',
+            template: './src/index.ejs',
             dev: dev
         }),
     ]
