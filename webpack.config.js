@@ -17,6 +17,7 @@ var config = {
         root: [__dirname + '/src', __dirname + '/node_modules'],
         alias: {
             'vue': 'vue/dist/vue' + (production ? '.min' : '') + '.js',
+            'vue-i18n': 'vue-i18n/dist/vue-i18n' + (production ? '.min' : '') + '.js',
         }
     },
     module: {
