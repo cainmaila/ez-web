@@ -1,4 +1,10 @@
 require('../less/main.less');
+var Vue = require('vue');
 var pcx = require('../images/pcx.jpg');
-document.getElementById('output').innerHTML = '從app.js輸出';
-document.getElementById('pcx').src = pcx;
+
+new Vue({
+    el: '#app',
+    data: {
+        myData: 'vue runing!'
+    }
+})

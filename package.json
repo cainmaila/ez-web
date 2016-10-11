@@ -1,12 +1,12 @@
 {
     "name": "ez-web",
-    "version": "1.1.2",
+    "version": "1.5.0",
     "description": "base webpack",
     "main": "index.js",
     "scripts": {
         "dev": "set NODE_ENV=dev&&webpack-dev-server --port 80 ---inline --content-base web --colors",
-        "build": "webpack --progress --colors",
-        "deploy": "webpack -p --progress --colors"
+        "build": "webpack --profile --progress --colors",
+        "deploy": "set NODE_ENV=production&&webpack --progress --colors"
     },
     "repository": {
         "type": "git",
@@ -30,6 +30,7 @@
         "less-loader": "^2.2.3",
         "style-loader": "^0.13.1",
         "url-loader": "^0.5.7",
+        "vue": "^2.0.1",
         "webpack": "^1.13.2"
     },
     "dependencies": {

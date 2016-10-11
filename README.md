@@ -1,5 +1,6 @@
-# ez-web 基本Web頁面(js + less) + WebPack Dev Server 
+# ez-web Vue2 Web app 
 
+v1.5.0 支援vue2
 v1.1.2 支援html版型控制
 v1.11 支援圖片打包
 v1.10 支援Less

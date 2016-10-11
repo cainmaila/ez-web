@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
+
 <head>
-	<meta charset="UTF-8">
-	<title><%= htmlWebpackPlugin.options.title %></title>
+    <meta charset="UTF-8">
+    <title><%= htmlWebpackPlugin.options.title %></title>
 </head>
+
 <body>
-	<h1>EZ Web APP wepback base + Less v1.1</h1>
-	<h2>基本Web頁面，js由webpack包覆，支援Less編寫</h2>
-	<div id="output"></div>
-	<img id="pcx" src="" alt="">
+    <h1>EZ Web APP wepback ES6 + Less v1.2</h1>
+    <div id="app">{{myData}}</div>
 </body>
 <%= htmlWebpackPlugin.options.dev?'<script src="/webpack-dev-server.js"></script>':'' %>
 </html>
