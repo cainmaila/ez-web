@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/cainmaila/ez-web#readme",
   "devDependencies": {
+    "clean-webpack-plugin": "^0.1.13",
     "css-loader": "^0.24.0",
     "file-loader": "^0.9.0",
     "html-webpack-plugin": "^2.22.0",

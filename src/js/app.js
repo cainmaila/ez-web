@@ -33,8 +33,8 @@ new Vue({
         // myData: 'vue runing!'
     },
     methods: {
-        change(lang) {
+        change: function (lang) {
             Vue.config.lang = lang;
         }
     }
-})
+});

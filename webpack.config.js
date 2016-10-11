@@ -1,6 +1,7 @@
 var path = require('path');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var CleanWebpackPlugin = require('clean-webpack-plugin');
 var webpack = require('webpack');
 var dev = process.env.NODE_ENV == 'dev';
 var production = process.env.NODE_ENV == 'production';
@@ -46,6 +47,13 @@ var config = {
         }),
     ]
 }
+
+if (dev) {
+
+} else {
+    config.plugins.unshift(new CleanWebpackPlugin(['dist']));
+}
+
 if (production) {
     config.plugins.push(
         new webpack.optimize.UglifyJsPlugin({
