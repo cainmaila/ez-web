@@ -2,39 +2,49 @@ require('../less/main.less');
 var pcx = require('../images/pcx.jpg');
 var Vue = require('vue');
 var VueI18n = require('vue-i18n');
+var Promise = require('promise');
 
-var locales = {
-    en: {
-        message: {
-            hello: 'Hello World!'
-        }
-    },
-    ja: {
-        message: {
-            hello: 'こんにちは、世界!'
-        }
-    },
-    'zh-TW': {
-        message: {
-            hello: '你好! 世界!'
-        }
-    }
-}
 
 Vue.use(VueI18n);
-Vue.config.lang = window.navigator.userLanguage || window.navigator.language;
-Object.keys(locales).forEach(function (lang) {
-    Vue.locale(lang, locales[lang])
-})
+setLang(window.navigator.userLanguage || window.navigator.language)
+    .then(function () {
+        new Vue({
+            el: '#app',
+            data: {
+                myData: 'vue runing!'
+            },
+            methods: {
+                change: setLang
+            }
+        });
+    })
+    .catch(function (error) {
+        console.error(error);
+    });
 
-new Vue({
-    el: '#app',
-    data: {
-        // myData: 'vue runing!'
-    },
-    methods: {
-        change: function (lang) {
+/**
+ * 	設定語系
+ * @param {String} lang 語系
+ */
+function setLang(lang) {
+    return new Promise(function (resolve, reject) {
+        if (Vue.locale(lang)) {
             Vue.config.lang = lang;
+            return resolve();
+        } else {
+            if (lang !== 'ja' && lang !== 'zh-TW') {
+                lang = 'en';
+            }
+            fetch('/resources/' + lang + '.json')
+                .then(function (response) {
+                    return response.json()
+                }).then(function (json) {
+                    Vue.locale(lang, json);
+                    Vue.config.lang = lang;
+                    return resolve();
+                }).catch(function (ex) {
+                    return reject(ex);
+                });
         }
-    }
-});
+    });
+}

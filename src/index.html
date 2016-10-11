@@ -3,15 +3,21 @@
 
 <head>
     <meta charset="UTF-8">
-    <title><%= htmlWebpackPlugin.options.title %></title>
+    <title>
+        <%= htmlWebpackPlugin.options.title %>
+    </title>
 </head>
 
 <body>
-    <div id="app">
-    	<h1>{{ $t("message.hello") }}</h1>
-    	<input type="button" value="英文" @click="change('en')">
-    	<input type="button" value="日文" @click="change('ja')">
+    <div id="app" v-cloak>
+        <div>
+            {{ myData }}
+        </div>
+        <h1>{{ $t("message.hello") }}</h1>
+        <input type="button" value="英文" @click="change('en')">
+        <input type="button" value="日文" @click="change('ja')">
     </div>
 </body>
 <%= htmlWebpackPlugin.options.dev?'<script src="/webpack-dev-server.js"></script>':'' %>
+
 </html>

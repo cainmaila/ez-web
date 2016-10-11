@@ -4,7 +4,7 @@
   "description": "base webpack",
   "main": "index.js",
   "scripts": {
-    "dev": "set NODE_ENV=dev&&webpack-dev-server --port 80 ---inline --content-base web --colors",
+    "dev": "set NODE_ENV=dev&&webpack-dev-server --port 80 ---inline --content-base src --colors",
     "build": "webpack --profile --progress --colors",
     "deploy": "set NODE_ENV=production&&webpack --progress --colors"
   },
@@ -29,6 +29,7 @@
     "html-webpack-plugin": "^2.22.0",
     "less": "^2.7.1",
     "less-loader": "^2.2.3",
+    "promise": "^7.1.1",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
     "vue": "^2.0.1",
