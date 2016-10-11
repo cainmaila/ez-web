@@ -1,10 +1,10 @@
 # ez-web Vue2 Web app 
 
-v1.5.0 支援vue2
-v1.1.2 支援html版型控制
-v1.11 支援圖片打包
-v1.10 支援Less
-v1.00 打包js，及時更新效果 
+v1.5.0 支援vue2<br>
+v1.1.2 支援html版型控制<br>
+v1.11 支援圖片打包<br>
+v1.10 支援Less<br>
+v1.00 打包js，及時更新效果<br>
 
 ## 安裝
 
