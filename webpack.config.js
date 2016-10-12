@@ -23,6 +23,7 @@ var config = {
             'vue-i18n': 'vue-i18n/dist/vue-i18n' + (production ? '.min' : '') + '.js',
             'vue-router': 'vue-router/dist/vue-router' + (production ? '.min' : '') + '.js',
             'vue-resource': 'vue-resource/dist/vue-resource' + (production ? '.min' : '') + '.js',
+            'vuex': 'vuex/dist/vuex' + (production ? '.min' : '') + '.js',
         }
     },
     module: {

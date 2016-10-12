@@ -5,6 +5,7 @@ var Vue = require('vue');
 var VueRouter = require('vue-router');
 var VueI18n = require('vue-i18n');
 var VueResource = require('vue-resource');
+var Vuex = require('vuex');
 var Promise = require('promise');
 
 var MyModal = require('./components/myModal/myModal.js');
@@ -14,6 +15,28 @@ Vue.component('ezModal', new MyModal('這一個Modal互動組件'));
 Vue.component('ezModalBn', MyModalBn);
 
 Vue.use(VueResource);
+Vue.use(Vuex);
+
+var store = new Vuex.Store({
+    state: {
+        count: 0
+    },
+    mutations: {
+        increment(state) {
+            state.count += 1;
+        }
+    },
+    getters: {
+        count: function (state) {
+            return state.count + 1;
+        }
+    },
+    actions: {
+        increment(context) {
+            context.commit('increment');
+        }
+    }
+});
 
 //異步加窄
 var P1 = function (r) {
@@ -48,6 +71,7 @@ setLang(window.navigator.userLanguage || window.navigator.language)
                 getJson: function (e) {
                     var $this = $(e.target);
                     $this.button('loading');
+                    store.dispatch('increment');
                     this.$http.get('/resources/lang/zh-TW.json')
                         .then(function (response) {
                             return response.json();
@@ -63,6 +87,12 @@ setLang(window.navigator.userLanguage || window.navigator.language)
                 }
             },
             router: router,
+            store: store,
+            computed: {
+                count: function () {
+                    return store.getters.count;
+                },
+            }
         }).$mount('#app');
 
     })
