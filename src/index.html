@@ -14,15 +14,38 @@
 <body>
     <div class="container-fluid" id="app">
         <div class="container" v-cloak>
-            <div>
-                {{ myData }}
-            </div>
             <h1>{{ $t("message.hello") }}</h1>
             <input type="button" class="btn btn-primary" value="英文" @click="change('en')">
             <input type="button" class="btn btn-success" value="日文" @click="change('ja')">
             <input type="button" class="btn btn-info" value="中文" @click="change('zh-TW')">
+            <hr>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                Launch demo modal
+            </button>
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                        </div>
+                        <div class="modal-body">
+                            {{ myData }}
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="/resources/bootstrap/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
 </body>
 <%= htmlWebpackPlugin.options.dev?'<script src="/webpack-dev-server.js"></script>':'' %>
 
