@@ -14,7 +14,7 @@ var config = {
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: './js/[name].[hash].js',
-        chunkFilename: '[name].[id].[hash].js',
+        chunkFilename: './js/[name].[id].[hash].js',
     },
     resolve: {
         root: [__dirname + '/src', __dirname + '/node_modules'],
