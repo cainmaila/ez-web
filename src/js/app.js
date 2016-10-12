@@ -1,8 +1,13 @@
 require('../less/main.less');
+require('../resources/en.json');
+require('../resources/ja.json');
+require('../resources/zh-TW.json');
+
 var pcx = require('../images/pcx.jpg');
 var Vue = require('vue');
 var VueI18n = require('vue-i18n');
 var Promise = require('promise');
+
 
 
 Vue.use(VueI18n);

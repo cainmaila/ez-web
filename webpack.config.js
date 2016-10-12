@@ -12,7 +12,8 @@ var config = {
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: './js/[name].js'
+        filename: './js/[name].[hash].js',
+        chunkFilename: '[name].[id].[hash].js',
     },
     resolve: {
         root: [__dirname + '/src', __dirname + '/node_modules'],
@@ -25,21 +26,33 @@ var config = {
         noParse: [/^vue$/],
         loaders: [{
             test: /\.css$/,
+            include: [
+                path.resolve(__dirname, "./src/less"),
+            ],
             loader: ExtractTextPlugin.extract("style-loader", "css-loader")
         }, {
             test: /\.less$/,
+            include: [
+                path.resolve(__dirname, "./src/less"),
+            ],
             loader: ExtractTextPlugin.extract("style-loader", "css-loader!less-loader")
         }, {
             test: /\.(png|jpg)$/,
+            include: [
+                path.resolve(__dirname, "./src/images"),
+            ],
             loader: 'url?limit=25000&name=images/[hash].[ext]'
-        }]
+        }, {
+            test: /\.json$/,
+            loader: 'file?name=./resources/[name].[ext]',
+        }, ]
     },
     plugins: [
-        new ExtractTextPlugin("./css/style.css", {
+        new ExtractTextPlugin("./css/style.[hash].css", {
             allChunks: true
         }),
         new webpack.optimize.DedupePlugin(),
-        new webpack.optimize.CommonsChunkPlugin( /* chunkName = */ "vendor", /* filename= */ "./js/vendor.js"),
+        new webpack.optimize.CommonsChunkPlugin( /* chunkName = */ "vendor", /* filename= */ "./js/vendor.[hash].js"),
         new HtmlWebpackPlugin({
             title: 'Ez Web App',
             template: './src/index.html',
