@@ -1,7 +1,4 @@
 require('../less/main.less');
-require('../resources/en.json');
-require('../resources/ja.json');
-require('../resources/zh-TW.json');
 
 var pcx = require('../images/pcx.jpg');
 var Vue = require('vue');
@@ -40,7 +37,7 @@ function setLang(lang) {
             if (lang !== 'ja' && lang !== 'zh-TW') {
                 lang = 'en';
             }
-            fetch('/resources/' + lang + '.json')
+            fetch('/resources/lang/' + lang + '.json')
                 .then(function (response) {
                     return response.json()
                 }).then(function (json) {

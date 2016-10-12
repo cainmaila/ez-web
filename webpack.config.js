@@ -2,6 +2,7 @@ var path = require('path');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var CleanWebpackPlugin = require('clean-webpack-plugin');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 var webpack = require('webpack');
 var dev = process.env.NODE_ENV == 'dev';
 var production = process.env.NODE_ENV == 'production';
@@ -65,6 +66,9 @@ if (dev) {
 
 } else {
     config.plugins.unshift(new CleanWebpackPlugin(['dist']));
+    config.plugins.push(new CopyWebpackPlugin([
+        { from: 'src/resources', to: 'resources' },
+    ]));
 }
 
 if (production) {
