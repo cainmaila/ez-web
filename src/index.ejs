@@ -29,6 +29,12 @@
             <router-link to="/p2" class="label label-success">Go to P2</router-link>
             <router-link to="/" class="label label-info">Go to Home</router-link>
             <router-view></router-view>
+            <hr>
+            <input type="button" class="btn btn-info" value="Load" @click="getJson($event)" data-loading-text="Loading..">
+            <div class="bs-callout bs-callout-primary">
+                  <h4>{{jsonData}}</h4>
+                  按下Load取回資料
+            </div>
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>

@@ -4,6 +4,7 @@ var pcx = require('../images/pcx.jpg');
 var Vue = require('vue');
 var VueRouter = require('vue-router');
 var VueI18n = require('vue-i18n');
+var VueResource = require('vue-resource');
 var Promise = require('promise');
 
 var MyModal = require('./components/myModal/myModal.js');
@@ -11,6 +12,8 @@ var MyModalBn = require('./components/myModalBn/myModalBn.vue');
 
 Vue.component('ezModal', new MyModal('這一個Modal互動組件'));
 Vue.component('ezModalBn', MyModalBn);
+
+Vue.use(VueResource);
 
 //異步加窄
 var P1 = function (r) {
@@ -31,17 +34,33 @@ var router = new VueRouter({
         { path: '/p2', component: P2 },
     ]
 });
-
 Vue.use(VueI18n);
 setLang(window.navigator.userLanguage || window.navigator.language)
     .then(function () {
 
         new Vue({
             data: {
-                myData: 'vue runing!'
+                myData: 'vue runing!',
+                jsonData: {}
             },
             methods: {
-                change: setLang
+                change: setLang,
+                getJson: function (e) {
+                    var $this = $(e.target);
+                    $this.button('loading');
+                    this.$http.get('/resources/lang/zh-TW.json')
+                        .then(function (response) {
+                            return response.json();
+                        })
+                        .then(function (json) {
+                            this.jsonData = json;
+                            $this.button('reset');
+                        })
+                        .catch(function (err) {
+                            this.jsonData = err;
+                            $this.button('reset');
+                        });
+                }
             },
             router: router,
         }).$mount('#app');

@@ -21,6 +21,8 @@ var config = {
         alias: {
             'vue': 'vue/dist/vue' + (production ? '.min' : '') + '.js',
             'vue-i18n': 'vue-i18n/dist/vue-i18n' + (production ? '.min' : '') + '.js',
+            'vue-router': 'vue-router/dist/vue-router' + (production ? '.min' : '') + '.js',
+            'vue-resource': 'vue-resource/dist/vue-resource' + (production ? '.min' : '') + '.js',
         }
     },
     module: {
