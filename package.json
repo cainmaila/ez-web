@@ -1,43 +1,44 @@
 {
-    "name": "ez-web",
-    "version": "1.5.0",
-    "description": "base webpack",
-    "main": "index.js",
-    "scripts": {
-        "dev": "set NODE_ENV=dev&&webpack-dev-server --port 80 ---inline --content-base src --colors",
-        "build": "webpack --profile --progress --colors",
-        "deploy": "set NODE_ENV=production&&webpack --progress --colors"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/cainmaila/ez-web.git"
-    },
-    "keywords": [
+  "name": "ez-web",
+  "version": "1.5.0",
+  "description": "base webpack",
+  "main": "index.js",
+  "scripts": {
+    "dev": "set NODE_ENV=dev&&webpack-dev-server --port 80 ---inline --content-base src --colors",
+    "build": "webpack --profile --progress --colors",
+    "deploy": "set NODE_ENV=production&&webpack --progress --colors"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cainmaila/ez-web.git"
+  },
+  "keywords": [
     "web",
     "webpack"
   ],
-    "author": "cainmaila@gmail.com",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/cainmaila/ez-web/issues"
-    },
-    "homepage": "https://github.com/cainmaila/ez-web#readme",
-    "devDependencies": {
-        "clean-webpack-plugin": "^0.1.13",
-        "copy-webpack-plugin": "^3.0.1",
-        "css-loader": "^0.24.0",
-        "file-loader": "^0.9.0",
-        "html-webpack-plugin": "^2.22.0",
-        "less": "^2.7.1",
-        "less-loader": "^2.2.3",
-        "promise": "^7.1.1",
-        "style-loader": "^0.13.1",
-        "url-loader": "^0.5.7",
-        "vue": "^2.0.1",
-        "vue-i18n": "^4.6.0",
-        "webpack": "^1.13.2"
-    },
-    "dependencies": {
-        "extract-text-webpack-plugin": "^1.0.1"
-    }
+  "author": "cainmaila@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cainmaila/ez-web/issues"
+  },
+  "homepage": "https://github.com/cainmaila/ez-web#readme",
+  "devDependencies": {
+    "clean-webpack-plugin": "^0.1.13",
+    "copy-webpack-plugin": "^3.0.1",
+    "css-loader": "^0.24.0",
+    "file-loader": "^0.9.0",
+    "html-loader": "^0.4.4",
+    "html-webpack-plugin": "^2.22.0",
+    "less": "^2.7.1",
+    "less-loader": "^2.2.3",
+    "promise": "^7.1.1",
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
+    "vue": "^2.0.1",
+    "vue-i18n": "^4.6.0",
+    "webpack": "^1.13.2"
+  },
+  "dependencies": {
+    "extract-text-webpack-plugin": "^1.0.1"
+  }
 }

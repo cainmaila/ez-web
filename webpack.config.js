@@ -44,8 +44,8 @@ var config = {
             ],
             loader: 'url?limit=25000&name=images/[hash].[ext]'
         }, {
-            test: /\.json$/,
-            loader: 'file?name=./resources/[name].[ext]',
+            test: /\.html$/,
+            loader: 'html'
         }, ]
     },
     plugins: [
@@ -56,7 +56,7 @@ var config = {
         new webpack.optimize.CommonsChunkPlugin( /* chunkName = */ "vendor", /* filename= */ "./js/vendor.[hash].js"),
         new HtmlWebpackPlugin({
             title: 'Ez Web App',
-            template: './src/index.html',
+            template: './src/index.ejs',
             dev: dev
         }),
     ]

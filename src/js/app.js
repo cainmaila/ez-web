@@ -5,11 +5,16 @@ var Vue = require('vue');
 var VueI18n = require('vue-i18n');
 var Promise = require('promise');
 
+var MyModal = require('./components/myModal/myModal.js');
+var MyModalBn = require('./components/myModalBn/myModalBn.js');
 
+Vue.component('ezModal', new MyModal('這一個Modal互動組件'));
+Vue.component('ezModalBn', MyModalBn);
 
 Vue.use(VueI18n);
 setLang(window.navigator.userLanguage || window.navigator.language)
     .then(function () {
+
         new Vue({
             el: '#app',
             data: {
@@ -19,6 +24,7 @@ setLang(window.navigator.userLanguage || window.navigator.language)
                 change: setLang
             }
         });
+
     })
     .catch(function (error) {
         console.error(error);
