@@ -83,7 +83,8 @@ function setLang(lang) {
             if (lang !== 'ja' && lang !== 'zh-TW') {
                 lang = 'en';
             }
-            fetch('/resources/lang/' + lang + '.json')
+            // fetch('/resources/lang/' + lang + '.json')
+            Vue.http.get('/resources/lang/' + lang + '.json')
                 .then(function (response) {
                     return response.json()
                 }).then(function (json) {
