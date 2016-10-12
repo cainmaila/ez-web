@@ -6,7 +6,8 @@ var VueI18n = require('vue-i18n');
 var Promise = require('promise');
 
 var MyModal = require('./components/myModal/myModal.js');
-var MyModalBn = require('./components/myModalBn/myModalBn.js');
+// var MyModalBn = require('./components/myModalBn/myModalBn.js');
+var MyModalBn = require('./components/myModalBn/myModalBn.vue');
 
 Vue.component('ezModal', new MyModal('這一個Modal互動組件'));
 Vue.component('ezModalBn', MyModalBn);

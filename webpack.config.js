@@ -46,7 +46,13 @@ var config = {
         }, {
             test: /\.html$/,
             loader: 'html'
-        }, ]
+        }, {
+            test: /\.vue$/,
+            include: [
+                path.resolve(__dirname, "./src/js/components"),
+            ],
+            loader: 'vue'
+        }]
     },
     plugins: [
         new ExtractTextPlugin("./css/style.[hash].css", {

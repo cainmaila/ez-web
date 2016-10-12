@@ -13,6 +13,11 @@ npm install webpack-dev-server -g
 npm install
 ```
 
+ERROR in Vue packages version mismatch:
+```
+npm up -d
+```
+
 ## 使用
 
 編譯的js與less請對應 **webpack.config.js**
