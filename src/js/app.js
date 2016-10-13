@@ -17,27 +17,46 @@ Vue.component('ezModalBn', MyModalBn);
 Vue.use(VueResource);
 Vue.use(Vuex);
 
-var INCREMENT = 'increment222';
+var INCREMENT = 'increment_event';
 
-var store = new Vuex.Store({
+var moduleA = {
     state: {
         count: 0,
-        storeName: 'my storeName!!'
-    },
-    mutations: {
-        [INCREMENT](state) {
-            state.count += 1;
-        },
+        storeName: 'my storeName is moduleA!!',
     },
     getters: {
-        count(state) {
+        count(state, getters, rootState) {
             return state.count + 1;
         }
     },
+    mutations: {
+        [INCREMENT](state, num) {
+            state.count += num;
+        },
+    },
     actions: {
-        [INCREMENT]({ commit }) {
-            commit(INCREMENT);
+        [INCREMENT]({ state, commit, rootState }, num = 0) {
+            commit(INCREMENT, num);
         }
+    }
+};
+
+var moduleB = {
+    state: {
+        count: 9999,
+        storeName: 'my storeName is moduleB!!',
+    },
+    getters: {
+        countBBB(state, getters, rootState) {
+            return state.count + 1;
+        }
+    },
+};
+
+var store = new Vuex.Store({
+    modules: {
+        a: moduleA,
+        b: moduleB
     }
 });
 
@@ -76,9 +95,7 @@ setLang(window.navigator.userLanguage || window.navigator.language)
                     getJson(e) {
                         var $this = $(e.target);
                         $this.button('loading');
-                        // console.log(this)
-                        // store.dispatch(INCREMENT);
-                        // this[INCREMENT]();
+                        this[INCREMENT](3);
                         this.$http.get('/resources/lang/zh-TW.json')
                             .then(function (response) {
                                 return response.json();
@@ -96,8 +113,13 @@ setLang(window.navigator.userLanguage || window.navigator.language)
             router,
             store,
             computed: Object.assign({},
-                Vuex.mapState(['storeName']),
-                Vuex.mapGetters(['count']), {
+                // Vuex.mapState({
+                //     storeName(state) {
+                //         return state.b.storeName;
+                //     }
+                // }),
+                Vuex.mapState(['a', 'b']),
+                Vuex.mapGetters(['count', 'countBBB']), {
                     countAdd() {
                         return this.count + 1;
                     }
