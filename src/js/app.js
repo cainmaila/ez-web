@@ -17,23 +17,26 @@ Vue.component('ezModalBn', MyModalBn);
 Vue.use(VueResource);
 Vue.use(Vuex);
 
+var INCREMENT = 'increment222';
+
 var store = new Vuex.Store({
     state: {
-        count: 0
+        count: 0,
+        storeName: 'my storeName!!'
     },
     mutations: {
-        increment(state) {
+        [INCREMENT](state) {
             state.count += 1;
-        }
+        },
     },
     getters: {
-        count: function (state) {
+        count(state) {
             return state.count + 1;
         }
     },
     actions: {
-        increment(context) {
-            context.commit('increment');
+        [INCREMENT]({ commit }) {
+            commit(INCREMENT);
         }
     }
 });
@@ -66,33 +69,40 @@ setLang(window.navigator.userLanguage || window.navigator.language)
                 myData: 'vue runing!',
                 jsonData: {}
             },
-            methods: {
-                change: setLang,
-                getJson: function (e) {
-                    var $this = $(e.target);
-                    $this.button('loading');
-                    store.dispatch('increment');
-                    this.$http.get('/resources/lang/zh-TW.json')
-                        .then(function (response) {
-                            return response.json();
-                        })
-                        .then(function (json) {
-                            this.jsonData = json;
-                            $this.button('reset');
-                        })
-                        .catch(function (err) {
-                            this.jsonData = err;
-                            $this.button('reset');
-                        });
+            methods: Object.assign({},
+                Vuex.mapActions([INCREMENT]), {
+                    // Vuex.mapMutations([INCREMENT]), {
+                    change: setLang,
+                    getJson(e) {
+                        var $this = $(e.target);
+                        $this.button('loading');
+                        // console.log(this)
+                        // store.dispatch(INCREMENT);
+                        // this[INCREMENT]();
+                        this.$http.get('/resources/lang/zh-TW.json')
+                            .then(function (response) {
+                                return response.json();
+                            })
+                            .then(function (json) {
+                                this.jsonData = json;
+                                $this.button('reset');
+                            })
+                            .catch(function (err) {
+                                this.jsonData = err;
+                                $this.button('reset');
+                            });
+                    }
+                }),
+            router,
+            store,
+            computed: Object.assign({},
+                Vuex.mapState(['storeName']),
+                Vuex.mapGetters(['count']), {
+                    countAdd() {
+                        return this.count + 1;
+                    }
                 }
-            },
-            router: router,
-            store: store,
-            computed: {
-                count: function () {
-                    return store.getters.count;
-                },
-            }
+            ),
         }).$mount('#app');
 
     })
