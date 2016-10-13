@@ -8,6 +8,8 @@ var VueResource = require('vue-resource');
 var Vuex = require('vuex');
 var Promise = require('promise');
 
+var EVENT = require('event');
+
 var MyModal = require('./components/myModal/myModal.js');
 var MyModalBn = require('./components/myModalBn/myModalBn.vue');
 
@@ -16,70 +18,8 @@ Vue.component('ezModalBn', MyModalBn);
 
 Vue.use(VueResource);
 Vue.use(Vuex);
-
-var INCREMENT = 'increment_event';
-
-var moduleA = {
-    state: {
-        count: 0,
-        storeName: 'my storeName is moduleA!!',
-    },
-    getters: {
-        count(state, getters, rootState) {
-            return state.count + 1;
-        }
-    },
-    mutations: {
-        [INCREMENT](state, num) {
-            state.count += num;
-        },
-    },
-    actions: {
-        [INCREMENT]({ state, commit, rootState }, num = 0) {
-            commit(INCREMENT, num);
-        }
-    }
-};
-
-var moduleB = {
-    state: {
-        count: 9999,
-        storeName: 'my storeName is moduleB!!',
-    },
-    getters: {
-        countBBB(state, getters, rootState) {
-            return state.count + 1;
-        }
-    },
-};
-
-var store = new Vuex.Store({
-    modules: {
-        a: moduleA,
-        b: moduleB
-    }
-});
-
-//異步加窄
-var P1 = function (r) {
-    require.ensure([], function () {
-        r(require('./components/p1/p1.vue'));
-    }, 'p1');
-}
-var P2 = function (r) {
-    require.ensure([], function () {
-        r(require('./components/p2/p2.vue'));
-    }, 'p2');
-}
-
-Vue.use(VueRouter);
-var router = new VueRouter({
-    routes: [
-        { path: '/p1', component: P1 },
-        { path: '/p2', component: P2 },
-    ]
-});
 Vue.use(VueI18n);
+
 setLang(window.navigator.userLanguage || window.navigator.language)
     .then(function () {
 
@@ -89,13 +29,13 @@ setLang(window.navigator.userLanguage || window.navigator.language)
                 jsonData: {}
             },
             methods: Object.assign({},
-                Vuex.mapActions([INCREMENT]), {
+                Vuex.mapActions([EVENT.INCREMENT]), {
                     // Vuex.mapMutations([INCREMENT]), {
                     change: setLang,
                     getJson(e) {
                         var $this = $(e.target);
                         $this.button('loading');
-                        this[INCREMENT](3);
+                        this[EVENT.INCREMENT](3);
                         this.$http.get('/resources/lang/zh-TW.json')
                             .then(function (response) {
                                 return response.json();
@@ -110,8 +50,8 @@ setLang(window.navigator.userLanguage || window.navigator.language)
                             });
                     }
                 }),
-            router,
-            store,
+            router: require('./router.js'),
+            store: require('store'),
             computed: Object.assign({},
                 // Vuex.mapState({
                 //     storeName(state) {

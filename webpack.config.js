@@ -24,6 +24,8 @@ var config = {
             'vue-router': 'vue-router/dist/vue-router' + (production ? '.min' : '') + '.js',
             'vue-resource': 'vue-resource/dist/vue-resource' + (production ? '.min' : '') + '.js',
             'vuex': 'vuex/dist/vuex' + (production ? '.min' : '') + '.js',
+            'event': 'js/store/event.js',
+            'store': 'js/store/store.js'
         }
     },
     module: {
