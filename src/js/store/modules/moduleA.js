@@ -1,5 +1,5 @@
 var EVENT = require('event');
-module.exports = {
+var moduleA = {
     state: {
         count: 0,
         storeName: 'my storeName is moduleA!!',
@@ -10,13 +10,15 @@ module.exports = {
         }
     },
     mutations: {
-        [EVENT.INCREMENT](state, num) {
+        addcount(state, num) {
             state.count += num;
         },
     },
     actions: {
         [EVENT.INCREMENT]({ state, commit, rootState }, num = 0) {
-            commit(EVENT.INCREMENT, num);
+            commit('addcount', num);
         }
     }
-};;
+}
+
+module.exports = moduleA;

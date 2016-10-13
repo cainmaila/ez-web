@@ -1,4 +1,3 @@
-var Vuex = require('vuex');
 var MyModal = require('./components/myModal/myModal.js');
 var MyModalBn = require('./components/myModalBn/myModalBn.vue');
 

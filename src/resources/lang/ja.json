@@ -1,4 +1,5 @@
 {
+    "language": "Language",
     "message": {
         "hello": "こんにちは、世界!"
     }

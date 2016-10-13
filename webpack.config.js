@@ -11,6 +11,7 @@ var config = {
         app: ['./src/js/app.js'],
         vendor: ['vue'],
     },
+    devtool: 'eval',
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: './js/[name].[hash].js',
@@ -25,7 +26,7 @@ var config = {
             'vue-resource': 'vue-resource/dist/vue-resource' + (production ? '.min' : '') + '.js',
             'vuex': 'vuex/dist/vuex' + (production ? '.min' : '') + '.js',
             'event': 'js/store/event.js',
-            'store': 'js/store/store.js'
+            'store': 'js/store/store.js',
         }
     },
     module: {
@@ -91,4 +92,5 @@ if (production) {
         })
     );
 }
+
 module.exports = config;
