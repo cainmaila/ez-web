@@ -1,8 +1,7 @@
 require('../less/main.less');
 
 var pcx = require('../images/pcx.jpg');
-var Vue = require('vue');
-var VueRouter = require('vue-router');
+var Vue = require('vue')
 var VueI18n = require('vue-i18n');
 var VueResource = require('vue-resource');
 var Vuex = require('vuex');
@@ -10,12 +9,7 @@ var Promise = require('promise');
 
 var EVENT = require('event');
 
-var MyModal = require('./components/myModal/myModal.js');
-var MyModalBn = require('./components/myModalBn/myModalBn.vue');
-
-Vue.component('ezModal', new MyModal('這一個Modal互動組件'));
-Vue.component('ezModalBn', MyModalBn);
-
+Vue.use(require('./component.js'));
 Vue.use(VueResource);
 Vue.use(Vuex);
 Vue.use(VueI18n);
