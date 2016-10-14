@@ -7,10 +7,10 @@
                 </a>
             </div>
             <ul class="nav navbar-nav">
-                <li><a href="#"></span>組件範例</a></li>
+                <li><router-link to="/comp"></span>組件範例</router-link></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><span class="glyphicon glyphicon-user"></span>{{ $t("singup") }}</a></li>
+                <li><router-link to="/comp"><span class="glyphicon glyphicon-user"></span>{{ $t("singup") }}</router-link></li>
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{ $t("language") }}
                         <span class="caret"></span>

@@ -7,10 +7,10 @@ var Home = function (r) {
         r(require('./page/home/home.js'));
     }, 'home');
 }
-var P2 = function (r) {
+var Comp = function (r) {
     require.ensure([], function () {
-        r(require('./components/p2/p2.vue'));
-    }, 'p2');
+        r(require('./page/component_page/component_page.js'));
+    }, 'component_page');
 }
 
 
@@ -19,6 +19,6 @@ Vue.use(VueRouter);
 module.exports = new VueRouter({
     routes: [
         { path: '/', component: Home },
-        { path: '/p2', component: P2 },
+        { path: '/comp', component: Comp },
     ]
 });
