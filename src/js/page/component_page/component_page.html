@@ -1,4 +1,27 @@
 <div class="container">
-	<h1>組件範例</h1>
-	<hr>
+    <h1>組件範例</h1>
+    <hr>
+    <div class="panel panel-default">
+        <div class="panel-heading">跳出視窗</div>
+        <div class="panel-body">
+            <!-- Button trigger modal -->
+            <ez-modal-bn target="myModal" bn-txt="Alert 物件"></ez-modal-bn>
+            <!-- Modal -->
+            <ez-modal modal-id="myModal"></ez-modal>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">提示</div>
+        <div class="panel-body">
+        	<button type="button" class="btn btn-primary btn-lg" @click="swichInfoLine(2)">提示訊息</button>
+            <hr>
+            <transition name="fade">
+	            <div class="alert alert-warning alert-dismissible" role="alert" v-if="infoLine">
+	                <button type="button" class="close" @click="swichInfoLine(0)"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+	                <strong>Warning!</strong> Better check yourself, you're not looking too good.
+	            </div>
+            </transition>
+        </div>
+    </div>
+    <hr>
 </div>

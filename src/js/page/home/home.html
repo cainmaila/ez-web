@@ -4,12 +4,6 @@
     <input type="button" class="btn btn-success" value="日文" @click="change('ja')">
     <input type="button" class="btn btn-info" value="中文" @click="change('zh-TW')">
     <hr>
-    <!-- Button trigger modal -->
-    <ez-modal-bn target="myModal" bn-txt="Alert 物件"></ez-modal-bn>
-    <!-- Modal -->
-    <ez-modal modal-id="myModal"></ez-modal>
-    <hr>
-    <hr>
     <input type="button" class="btn btn-info" value="Load" @click="getJson($event)" data-loading-text="Loading..">
     <div class="bs-callout bs-callout-primary">
         <h4>{{jsonData}}</h4> 按下Load取回資料
