@@ -1,5 +1,6 @@
 # ez-web Vue2 Web app 
 
+v1.5.2 加入head與範本，組織架構
 v1.5.1 加入vue各種資源與bootstrap3，後台專用<br>
 v1.5.0 支援vue2<br>
 v1.1.2 支援html版型控制<br>

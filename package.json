@@ -1,6 +1,6 @@
 {
     "name": "ez-web",
-    "version": "1.5.1",
+    "version": "1.5.2",
     "description": "base webpack",
     "main": "index.js",
     "scripts": {
