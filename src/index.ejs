@@ -16,35 +16,7 @@
         <ez-header>
             <span slot="til">EZ Web App</span>
         </ez-header>
-        <div class="container">
-            <h1>{{ $t("message.hello") }}</h1>
-            <input type="button" class="btn btn-primary" value="英文" @click="change('en')">
-            <input type="button" class="btn btn-success" value="日文" @click="change('ja')">
-            <input type="button" class="btn btn-info" value="中文" @click="change('zh-TW')">
-            <hr>
-            <!-- Button trigger modal -->
-            <ez-modal-bn target="myModal" bn-txt="Alert 物件"></ez-modal-bn>
-            <!-- Modal -->
-            <ez-modal modal-id="myModal"></ez-modal>
-            <hr>
-            <!-- router -->
-            <router-link to="/p1" class="label label-primary">Go to P1</router-link>
-            <router-link to="/p2" class="label label-success">Go to P2</router-link>
-            <router-link to="/" class="label label-info">Go to Home</router-link>
-            <router-view></router-view>
-            <hr>
-            <input type="button" class="btn btn-info" value="Load" @click="getJson($event)" data-loading-text="Loading..">
-            <div class="bs-callout bs-callout-primary">
-                  <h4>{{jsonData}}</h4>
-                  按下Load取回資料
-            </div>
-            <hr>
-            <div>{{count}}</div>
-            <div>{{countAdd}}</div>
-            <div>
-                {{a.storeName}} | {{b.storeName}}
-            </div>
-        </div>
+        <router-view></router-view>
     </div>
     <script src="/resources/jquery-3.1.1.min.js" type="text/javascript" ></script>
     <script src="/resources/bootstrap/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>

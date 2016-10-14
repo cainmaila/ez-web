@@ -56,6 +56,7 @@ var config = {
             test: /\.vue$/,
             include: [
                 path.resolve(__dirname, "./src/js/components"),
+                path.resolve(__dirname, "./src/js/page"),
             ],
             loader: 'vue'
         }]
@@ -64,7 +65,7 @@ var config = {
         new ExtractTextPlugin("./css/style.[hash].css", {
             allChunks: true
         }),
-        new webpack.optimize.DedupePlugin(),
+        // new webpack.optimize.DedupePlugin(),
         new webpack.optimize.CommonsChunkPlugin( /* chunkName = */ "vendor", /* filename= */ "./js/vendor.[hash].js"),
         new HtmlWebpackPlugin({
             title: 'Ez Web App',

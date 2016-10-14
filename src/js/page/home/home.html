@@ -1,0 +1,23 @@
+<div class="container">
+    <h1>{{ $t("message.hello") }}</h1>
+    <input type="button" class="btn btn-primary" value="英文" @click="change('en')">
+    <input type="button" class="btn btn-success" value="日文" @click="change('ja')">
+    <input type="button" class="btn btn-info" value="中文" @click="change('zh-TW')">
+    <hr>
+    <!-- Button trigger modal -->
+    <ez-modal-bn target="myModal" bn-txt="Alert 物件"></ez-modal-bn>
+    <!-- Modal -->
+    <ez-modal modal-id="myModal"></ez-modal>
+    <hr>
+    <hr>
+    <input type="button" class="btn btn-info" value="Load" @click="getJson($event)" data-loading-text="Loading..">
+    <div class="bs-callout bs-callout-primary">
+        <h4>{{jsonData}}</h4> 按下Load取回資料
+    </div>
+    <hr>
+    <div>{{count}}</div>
+    <div>{{countAdd}}</div>
+    <div>
+        {{a.storeName}} | {{b.storeName}}
+    </div>
+</div>

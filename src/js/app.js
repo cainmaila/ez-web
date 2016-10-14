@@ -7,7 +7,10 @@ Vue.use(VueResource);
 Vue.use(require('./lang.js'));
 Vue.setLang(window.navigator.userLanguage || window.navigator.language)
     .then(function () {
-        new Vue(require('./root.js')).$mount('#app');
+        new Vue({
+            router: require('./router.js'),
+            store: require('./store/store.js'),
+        }).$mount('#app');
     })
     .catch(function (error) {
         console.error(error);
