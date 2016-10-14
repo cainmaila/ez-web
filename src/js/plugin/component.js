@@ -1,6 +1,6 @@
-var MyModal = require('./components/myModal/myModal.js');
-var MyModalBn = require('./components/myModalBn/myModalBn.vue');
-var EzHeader = require('./components/header/header.vue');
+var MyModal = require('../components/myModal/myModal.js');
+var MyModalBn = require('../components/myModalBn/myModalBn.vue');
+var EzHeader = require('../components/header/header.vue');
 
 module.exports.install = function (Vue, options) {
     Vue.mixin({

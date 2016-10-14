@@ -6,6 +6,9 @@
                 	<slot name="til">EZ Web App</slot>
                 </a>
             </div>
+            <ul class="nav navbar-nav">
+                <li><a href="#"></span>組件範例</a></li>
+            </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#"><span class="glyphicon glyphicon-user"></span>{{ $t("singup") }}</a></li>
                 <li class="dropdown">

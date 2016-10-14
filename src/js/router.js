@@ -1,6 +1,7 @@
 var Vue = require('vue');
 var VueRouter = require('vue-router');
-//異步加窄
+
+//異步載入
 var Home = function (r) {
     require.ensure([], function () {
         r(require('./page/home/home.js'));

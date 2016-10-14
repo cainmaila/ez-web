@@ -1,0 +1,1 @@
+module.exports.ROOT_DOM_ID = '#app';
