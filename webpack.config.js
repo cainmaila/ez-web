@@ -65,7 +65,7 @@ var config = {
         new ExtractTextPlugin("./css/style.[hash].css", {
             allChunks: true
         }),
-        // new webpack.optimize.DedupePlugin(),
+        new webpack.optimize.DedupePlugin(),
         new webpack.optimize.CommonsChunkPlugin( /* chunkName = */ "vendor", /* filename= */ "./js/vendor.[hash].js"),
         new HtmlWebpackPlugin({
             title: 'Ez Web App',
